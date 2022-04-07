@@ -48,31 +48,35 @@ spring:
 
 spring:
   profiles: docker
+  sleuth:
+    propagation-keys: x-request-id,x-ot-span-context
+  zipkin:
+    base-url: http://jaeger-collector.default.svc.cluster.local:9411
   cloud:
     gateway:
       routes:
         - id: payment
-          uri: http://payment:8080
+          uri: http://user06-payment:8080
           predicates:
             - Path=/payments/** 
         - id: car
-          uri: http://car:8080
+          uri: http://user06-car:8080
           predicates:
             - Path=/cars/** 
         - id: reservation
-          uri: http://reservation:8080
+          uri: http://user06-reservation:8080
           predicates:
             - Path=/reservations/** 
         - id: message
-          uri: http://message:8080
+          uri: http://user06-message:8080
           predicates:
             - Path=/messages/** 
         - id: viewpage
-          uri: http://viewpage:8080
+          uri: http://user06-viewpage:8080
           predicates:
             - Path= /roomviews/**
         - id: frontend
-          uri: http://frontend:8080
+          uri: http://user06-frontend:8080
           predicates:
             - Path=/**
       globalcors:
