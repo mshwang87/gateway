@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: gateway
+  namespace: socar
   labels:
     app: gateway
 spec:
@@ -16,6 +17,6 @@ spec:
     spec:
       containers:
         - name: gateway
-          image: username/gateway:latest
+          image: 979050235289.dkr.ecr.ap-southeast-2.amazonaws.com/user06-gateway:1.0
           ports:
             - containerPort: 8080
