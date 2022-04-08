@@ -27,7 +27,7 @@ spring:
         - id: viewpage
           uri: http://localhost:8085
           predicates:
-            - Path= /roomviews/**
+            - Path= /carviews/**
         - id: frontend
           uri: http://localhost:8080
           predicates:
@@ -58,7 +58,7 @@ spring:
         - id: car
           uri: http://user06-car:8080
           predicates:
-            - Path=/cars/** 
+            - Path=/cars/**, /check/**
         - id: reservation
           uri: http://user06-reservation:8080
           predicates:
@@ -70,11 +70,7 @@ spring:
         - id: viewpage
           uri: http://user06-viewpage:8080
           predicates:
-            - Path= /roomviews/**
-        - id: frontend
-          uri: http://user06-frontend:8080
-          predicates:
-            - Path=/**
+            - Path= /carviews/**
       globalcors:
         corsConfigurations:
           '[/**]':
